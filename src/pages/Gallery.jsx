@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import Skelton from '../components/Skelton'
 
 const Gallery = () => {
   const [gallery, setGallery] = useState([])
@@ -17,6 +18,8 @@ const Gallery = () => {
         },
       })
       setIsLoading(true)
+      console.log(response.data)
+
       setGallery(response.data)
       setIsLoading(false)
     } catch (error) {
@@ -37,37 +40,53 @@ const Gallery = () => {
   }
 
   return (
-    <>
+    <div className='max-w-7xl m-auto'>
       <h2 className='text-3xl mb-5'>Gallery</h2>
       <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4'>
         {isLoading ? (
-            <div className='flex items-center justify-center w-full'>
-            <img
-              src='https://wpamelia.com/wp-content/uploads/2018/11/ezgif-2-6d0b072c3d3f.gif'
-              alt='loading'
-            />
-          </div>
+          <Skelton />
         ) : (
           gallery.map((item) => (
-            <div key={item.id}>
-              <img src={item.download_url} alt={item.author} />
+            <div className='card bg-base-100 w-96 shadow-xl' key={item.id}>
+              <figure>
+                <img
+                  src={item.download_url}
+                  alt={item.author}
+                  className='w-96 max-h-96'
+                />
+              </figure>
+              <div className='card-body'>
+                <h2 className='card-title'> {item.author}</h2>
+                <div className='card-actions justify-end'>
+                  <a
+                    href={item.download_url}
+                    className='badge badge-outline'
+                    download
+                  >
+                    Download
+                  </a>
+                </div>
+              </div>
             </div>
           ))
         )}
       </div>
-      <div className='flex justify-end gap-3 mt-5'>
-        <button
-          onClick={prevPage}
-          disabled={currentPage === 1}
-          className='bg-gray-300 shadow-md p-3 py-2'
-        >
-          Prev
-        </button>
-        <button onClick={nextPage} className='bg-gray-300 shadow-md p-3 py-2'>
-          Next
-        </button>
+      <div className='flex justify-end mt-5 mr-7 '>
+        <div className='join'>
+          <button
+            className='join-item btn'
+            onClick={prevPage}
+            disabled={currentPage === 1}
+          >
+            «
+          </button>
+          <button className='join-item btn'>{currentPage}</button>
+          <button className='join-item btn' onClick={nextPage}>
+            »
+          </button>
+        </div>
       </div>
-    </>
+    </div>
   )
 }
 

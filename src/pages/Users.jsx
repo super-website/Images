@@ -12,6 +12,7 @@ const Users = () => {
 
   const fetchData = async () => {
     const response = await axios(`${url}&query=${searchTerm}&per_page=20`)
+    console.log(response.data)
 
     setUsers(response.data.results)
   }
@@ -33,20 +34,27 @@ const Users = () => {
           </li>
         </ul>
       </div>
-      <div>
-        <h2 className='text-4xl mb-3'>Users</h2>
+      <h2 className='text-4xl mb-3'>Users</h2>
+      <div className='grid grid-cols-3 gap-10 max-w-6xl m-auto'>
         {users.map((item) => {
           const { id, user } = item
           return (
-            <div key={id} className='flex mb-5'>
-              <img
-                src={user.profile_image.medium}
-                alt={user.name}
-                className='rounded-full mr-5'
-              />
-              <div className='flex flex-col'>
-                <span>{user.name}</span>
-                <a href={user.social.portfolio_url}>Visit The Profile</a>
+            <div className='card bg-base-100 shadow-xl' key={id}>
+              <figure>
+                <div className='avatar'>
+                  <div className='w-24 rounded-full'>
+                    <img src={user.profile_image.medium} alt='Movie' />
+                  </div>
+                </div>
+              </figure>
+              <div className='card-body'>
+                <h2 className='card-title'>{user.name}</h2>
+                <p>{user.bio ? user.bio : 'N/A'}</p>
+                <div className='card-actions justify-end'>
+                  <a className='btn btn-primary' href={user.links.portfolio}>
+                    Portfolio
+                  </a>
+                </div>
               </div>
             </div>
           )
