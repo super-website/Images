@@ -1,5 +1,6 @@
 import { NavLink, useLocation } from 'react-router-dom'
 import SearchForm from '../pages/SearchForm'
+import { FaBars } from 'react-icons/fa'
 
 const Navbar = () => {
   const location = useLocation()
@@ -10,29 +11,59 @@ const Navbar = () => {
   ]
 
   return (
-    <div className='flex justify-between mb-5 gap-4 items-center'>
-      <div>
-        <a href='/' className='text-3xl text-white'>
+    <div className='navbar bg-base-100 max-w-7xl m-auto'>
+      <div className='flex-1'>
+        <a className='btn btn-ghost text-xl' href='/'>
           Picsum
         </a>
       </div>
-
-      {location.pathname === '/' && <SearchForm />}
-
-      <ul className='flex gap-4'>
-        {items.map((item) => {
-          const { id, name, path } = item
-          return (
-            <li key={id}>
-              <NavLink to={path} className='capitalize text-md'>
-                {name}
-              </NavLink>
-            </li>
-          )
-        })}
-      </ul>
+      <div className='flex-none gap-2'>
+        <div className='form-control'>
+          {location.pathname === '/' && <SearchForm />}
+        </div>
+        <div className='dropdown dropdown-end'>
+          <div
+            tabIndex={0}
+            role='button'
+            className='btn btn-ghost btn-circle avatar '
+          >
+            <div className='w-10  rounded-full'>
+              <FaBars className=' h-full text-center' />
+            </div>
+          </div>
+          <ul
+            tabIndex={0}
+            className='menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow'
+          >
+            {items.map((item) => {
+              const { id, name, path } = item
+              return (
+                <li key={id}>
+                  <NavLink to={path} className='capitalize text-md'>
+                    {name}
+                  </NavLink>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
+      </div>
     </div>
   )
 }
 
 export default Navbar
+
+//  <div className='flex justify-between mb-5 gap-4 items-center'>
+//       <div>
+//         <a href='/' className='text-3xl text-white'>
+//           Picsum
+//         </a>
+//       </div>
+
+//
+
+//       <ul className='flex gap-4'>
+//
+//       </ul>
+//     </div>

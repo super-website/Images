@@ -62,6 +62,8 @@ const Gallery = () => {
                     href={item.download_url}
                     className='badge badge-outline'
                     download
+                    rel='noreferrer'
+                    target='_blank'
                   >
                     Download
                   </a>

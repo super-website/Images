@@ -1,5 +1,4 @@
 import { useGlobalContext } from './context'
-import { FaSearch } from 'react-icons/fa'
 const SearchForm = () => {
   const { setSearchTerm } = useGlobalContext()
   const handleSubmit = (e) => {
@@ -8,30 +7,16 @@ const SearchForm = () => {
     setSearchTerm(searchValue)
   }
   return (
-    <div>
-      <div className='flex justify-center '>
-        <form
-          onSubmit={handleSubmit}
-          className='  shadow-xl p-3  border rounded-full '
-        >
-          <input
-            type='text'
-            name='search'
-            className='px-4 outline-none sm:w-64 lg:w-96 bg-transparent '
-            placeholder='Pakistan'
-            autoFocus
-            autoComplete='off'
-          />
-          <button
-            aria-label='search'
-            type='submit'
-            className='px-3 text-gray-500 border-l-2 hover:text-white transition'
-          >
-            <FaSearch />
-          </button>
-        </form>
-      </div>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input
+        type='text'
+        name='search'
+        placeholder='Pakistan'
+        autoFocus
+        autoComplete='off'
+        className='input input-bordered w-24 md:w-auto outline-none'
+      />
+    </form>
   )
 }
 

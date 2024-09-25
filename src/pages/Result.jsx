@@ -15,7 +15,7 @@ const Result = () => {
   const response = useQuery({
     queryKey: ['results', searchTerm],
     queryFn: async () => {
-      const result = await axios.get(`${url}&query=${searchTerm}&per_page=15`)
+      const result = await axios.get(`${url}&query=${searchTerm}&per_page=20`)
       return result.data
     },
   })
@@ -53,11 +53,6 @@ const Result = () => {
 
   return (
     <>
-      <div className='border-b py-3'>
-        <span className='text-white'>
-          Total Products: <span className='text-white'>{results.length}</span>
-        </span>
-      </div>
       <div className='grid lg:grid-cols-3 gap-4 md:grid-cols-2 mt-5 max-w-7xl m-auto'>
         {results.map((item) => {
           const { id, urls, tags, likes } = item
