@@ -55,6 +55,7 @@ const Gallery = () => {
                   className='max-h-full max-w-full'
                   width={400}
                   height={400}
+                  rel='preload'
                 />
               </figure>
               <div className='card-body'>

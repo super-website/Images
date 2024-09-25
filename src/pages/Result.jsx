@@ -64,6 +64,7 @@ const Result = () => {
                   New
                 </div>
                 <img
+                  rel='preload'
                   src={urls.regular}
                   alt='Shoes'
                   className='max-w-full h-96 max-h-full object-cover'
