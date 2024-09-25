@@ -5,6 +5,9 @@ const links = [
   { url: '/', changefreq: 'daily', priority: 1.0 },
   { url: '/gallery', changefreq: 'daily', priority: 1.0 },
   { url: '/about', changefreq: 'daily', priority: 1.0 },
+  { url: '/users', changefreq: 'daily', priority: 1.0 },
+  { url: '/deals', changefreq: 'daily', priority: 1.0 },
+  { url: '/results', changefreq: 'daily', priority: 1.0 },
 ]
 
 const sitemapStream = new SitemapStream({
