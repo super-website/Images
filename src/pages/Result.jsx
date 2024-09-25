@@ -55,8 +55,7 @@ const Result = () => {
     <>
       <div className='border-b py-3'>
         <span className='text-accent'>
-          Total Products:{' '}
-          <span className='text-secondary'>{results.length}</span>
+          Total Products: <span className='text-black'>{results.length}</span>
         </span>
       </div>
       <div className='grid lg:grid-cols-3 gap-4 md:grid-cols-2 mt-5 max-w-7xl m-auto'>

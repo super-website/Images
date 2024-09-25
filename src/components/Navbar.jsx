@@ -12,8 +12,8 @@ const Navbar = () => {
   return (
     <div className='flex justify-between mb-5 gap-4 items-center'>
       <div>
-        <a href='/' className='text-3xl text-accent'>
-          Pic<span className='text-primary'>su</span>m
+        <a href='/' className='text-3xl text-white'>
+          Picsum
         </a>
       </div>
 
