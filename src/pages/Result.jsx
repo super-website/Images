@@ -66,9 +66,8 @@ const Result = () => {
                 <img
                   src={urls.regular}
                   alt='Shoes'
-                  className='max-w-full max-h-full object-cover'
+                  className='max-w-full h-96 max-h-full object-cover'
                   width={400}
-                  height={400}
                 />
               </figure>
               <div className='card-body'>
