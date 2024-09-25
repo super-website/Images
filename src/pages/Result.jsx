@@ -64,11 +64,17 @@ const Result = () => {
                   New
                 </div>
                 <img
-                  rel='preload'
                   src={urls.regular}
+                  srcSet={`
+        ${urls.small} 400w,
+        ${urls.medium} 800w,
+        ${urls.large} 1200w
+    `}
+                  sizes='(max-width: 400px) 100vw, 400px'
                   alt='Shoes'
-                  className='max-w-full h-96 max-h-full object-cover'
+                  className='max-w-full h-96 object-cover'
                   width={400}
+                  height={240}
                 />
               </figure>
               <div className='card-body'>
