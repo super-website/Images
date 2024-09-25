@@ -1,0 +1,5 @@
+# Redirect all traffic to the Picsum Images website
+Redirect 301 / https://www.picsum-images.netlify.app/
+
+# Serve index.html for any other request
+/*    /index.html   200
