@@ -87,13 +87,14 @@ const Result = () => {
                   <span>{isLiked ? likes + 1 : likes}</span>
                 </div>
                 <div className='card-actions justify-end'>
-                  {tags.map((tag) => {
-                    return (
-                      <div className='badge badge-outline' key={tag}>
-                        {tag.title}
-                      </div>
-                    )
-                  })}
+                  {tags &&
+                    tags.map((tag) => {
+                      return (
+                        <div className='badge badge-outline' key={tag}>
+                          {tag.title}
+                        </div>
+                      )
+                    })}
                 </div>
               </div>
             </div>
