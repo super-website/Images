@@ -23,6 +23,7 @@ const SearchForm = () => {
             autoComplete='off'
           />
           <button
+            aria-label='search'
             type='submit'
             className='px-3 text-gray-500 border-l-2 hover:text-white transition'
           >

@@ -77,7 +77,10 @@ const Result = () => {
               </figure>
               <div className='card-body'>
                 <div className='flex items-center gap-2'>
-                  <button onClick={() => handleLike(id)}>
+                  <button
+                    onClick={() => handleLike(id)}
+                    aria-label='like-button'
+                  >
                     {isLiked ? (
                       <FaHeart className='text-red-500' />
                     ) : (
