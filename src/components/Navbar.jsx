@@ -19,18 +19,18 @@ const Navbar = () => {
 
       {location.pathname === '/' && <SearchForm />}
 
-      <div className='flex gap-4'>
+      <ul className='flex gap-4'>
         {items.map((item) => {
           const { id, name, path } = item
           return (
-            <ul key={id}>
+            <li key={id}>
               <NavLink to={path} className='capitalize text-md'>
                 {name}
               </NavLink>
-            </ul>
+            </li>
           )
         })}
-      </div>
+      </ul>
     </div>
   )
 }
