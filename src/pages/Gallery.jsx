@@ -52,7 +52,9 @@ const Gallery = () => {
                 <img
                   src={item.download_url}
                   alt={item.author}
-                  className='w-96 max-h-96'
+                  className='max-h-full max-w-full'
+                  width={200}
+                  height={200}
                 />
               </figure>
               <div className='card-body'>
