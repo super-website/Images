@@ -69,7 +69,6 @@ const Result = () => {
                   alt='Shoes'
                   className='max-w-full h-96 object-cover'
                   width={400}
-                  height={240}
                 />
               </figure>
               <div className='card-body'>
