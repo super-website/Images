@@ -58,7 +58,7 @@ const Result = () => {
           const { id, urls, tags, likes } = item
           const isLiked = likedPhotos[id] || false
           return (
-            <div className='card bg-base-100 w-96 shadow-xl' key={id}>
+            <div className='card bg-base-100 w-96 sm:w-80 shadow-xl' key={id}>
               <figure>
                 <div className='badge bg-secondary text-black absolute right-2 top-2'>
                   New
