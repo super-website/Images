@@ -47,20 +47,17 @@ const Gallery = () => {
           <Skelton />
         ) : (
           gallery.map((item) => (
-            <div
-              className='card bg-base-100 w-96 sm:w-auto shadow-xl'
-              key={item.id}
-            >
+            <div className='card bg-base-100 w-96 shadow-xl' key={item.id}>
               <figure>
                 <img
                   src={item.download_url}
                   alt={item.author}
-                  className='max-h-full max-w-full'
-                  sizes='(max-width: 300px) 100vw, 400px'
+                  className='h-96 max-w-full'
+                  sizes='(max-width: 400px) 100vw, 400px'
+                  rel='preload'
                   className='max-w-full h-96 object-cover'
                   width={300}
                   height={240}
-                  rel='preload'
                 />
               </figure>
               <div className='card-body'>
