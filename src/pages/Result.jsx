@@ -67,7 +67,7 @@ const Result = () => {
                   src={urls.regular}
                   sizes='(max-width: 300px) 100vw, 400px'
                   alt='Shoes'
-                  className='max-w-full h-96 object-cover'
+                  className='max-w-full h-96 sm:w-auto object-cover'
                   width={300}
                   height={240}
                 />
