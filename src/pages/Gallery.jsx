@@ -47,7 +47,10 @@ const Gallery = () => {
           <Skelton />
         ) : (
           gallery.map((item) => (
-            <div className='card bg-base-100 w-96 shadow-xl' key={item.id}>
+            <div
+              className='card bg-base-100 w-96 sm:w-auto shadow-xl'
+              key={item.id}
+            >
               <figure>
                 <img
                   src={item.download_url}
