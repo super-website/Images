@@ -53,8 +53,10 @@ const Gallery = () => {
                   src={item.download_url}
                   alt={item.author}
                   className='max-h-full max-w-full'
-                  width={400}
-                  height={400}
+                  sizes='(max-width: 300px) 100vw, 400px'
+                  className='max-w-full h-96 object-cover'
+                  width={300}
+                  height={240}
                   rel='preload'
                 />
               </figure>
