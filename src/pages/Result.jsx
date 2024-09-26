@@ -65,10 +65,10 @@ const Result = () => {
                 </div>
                 <img
                   src={urls.regular}
-                  sizes='(max-width: 400px) 100vw, 400px'
+                  sizes='(max-width: 300px) 100vw, 400px'
                   alt='Shoes'
                   className='max-w-full h-96 object-cover'
-                  width={400}
+                  width={300}
                   height={240}
                 />
               </figure>
