@@ -53,7 +53,7 @@ const Result = () => {
 
   return (
     <>
-      <div className='grid lg:grid-cols-3 gap-4 md:grid-cols-2 mt-5 max-w-7xl m-auto'>
+      <div className='grid lg:grid-cols-3 gap-4 md:grid-cols-2 mt-5 max-w-7xl grid-cols-1 m-auto'>
         {results.map((item) => {
           const { id, urls, tags, likes } = item
           const isLiked = likedPhotos[id] || false
