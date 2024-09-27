@@ -4,6 +4,7 @@ import axios from 'axios'
 import { FaHeart } from 'react-icons/fa'
 import { useState } from 'react'
 import Skelton from '../components/Skelton'
+import { Helmet } from 'react-helmet'
 
 const url =
   'https://api.unsplash.com/search/photos?client_id=MBSh4UFmTzINMXwTxM_OygCRTnqwVltDfFPdlxwdH4U'
@@ -53,6 +54,15 @@ const Result = () => {
 
   return (
     <>
+      <Helmet>
+        <title>
+          100+ Free HD Images | Download Stunning Pictures from Picsum
+        </title>
+        <meta
+          name='description'
+          content='Discover over 100 high-definition images available for free download on Picsum. Perfect for your projects, these stunning visuals range from nature landscapes to urban scenes. Enhance your website, blog, or creative work with high-quality, royalty-free pictures. Explore our collection today and find the perfect image to elevate your content!'
+        />
+      </Helmet>
       <div className='grid lg:grid-cols-3 gap-4 md:grid-cols-2 mt-5 max-w-7xl grid-cols-1 m-auto'>
         {results.map((item) => {
           const { id, urls, tags, likes } = item
