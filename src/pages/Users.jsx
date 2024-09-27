@@ -24,7 +24,6 @@ const Users = () => {
 
   return (
     <>
-      className='max-w-full h-96 object-cover'
       <Helmet>
         <title>Our Users | Empowering Creatives with Free HD Images</title>
         <meta
@@ -44,7 +43,7 @@ const Users = () => {
         </ul>
       </div>
       <h2 className='text-4xl mb-3'>Users</h2>
-      <div className='grid grid-cols-3 gap-10 max-w-6xl m-auto'>
+      <div className='grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 max-w-6xl m-auto'>
         {users.map((item) => {
           const { id, user } = item
           return (
