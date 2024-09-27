@@ -71,15 +71,15 @@ const Result = () => {
       </Helmet>
       <div className='grid lg:grid-cols-3 gap-4 md:grid-cols-2 mt-5 max-w-7xl grid-cols-1 m-auto'>
         {results.map((item) => {
-          const { id, urls, likes, description, alt_description } = item
+          const { id, urls, likes, description, alt_description, user } = item
           console.log(item)
           const isLiked = likedPhotos[id] || false
           return (
             <div className='card bg-base-100 w-96 sm:w-80 shadow-xl' key={id}>
               <figure>
-                <div className='badge bg-secondary text-black absolute right-2 top-2'>
-                  New
-                </div>
+                <span className='badge badge-success text-black absolute left-2 top-2'>
+                  {user.first_name}
+                </span>
                 <img
                   src={urls.regular}
                   sizes='(max-width: 400px) 100vw, 400px'
