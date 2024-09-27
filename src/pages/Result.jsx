@@ -1,7 +1,13 @@
 import { useQuery } from '@tanstack/react-query'
 import { useGlobalContext } from './context'
 import axios from 'axios'
-import { FaHeart } from 'react-icons/fa'
+import {
+  FaHeart,
+  FaRegUserCircle,
+  FaUser,
+  FaUserCircle,
+  FaUsers,
+} from 'react-icons/fa'
 import { useState } from 'react'
 import Skelton from '../components/Skelton'
 import { Helmet } from 'react-helmet'
@@ -65,7 +71,7 @@ const Result = () => {
       </Helmet>
       <div className='grid lg:grid-cols-3 gap-4 md:grid-cols-2 mt-5 max-w-7xl grid-cols-1 m-auto'>
         {results.map((item) => {
-          const { id, urls, tags, likes } = item
+          const { id, urls, likes, description, alt_description } = item
           console.log(item)
           const isLiked = likedPhotos[id] || false
           return (
@@ -83,7 +89,11 @@ const Result = () => {
                 />
               </figure>
               <div className='card-body'>
-                <div className='flex items-center gap-2'>
+                <div className='flex justify-between'>
+                  <div className='flex items-center gap-1 text-sm'>
+                    <FaUsers />
+                    <span>{isLiked ? likes + 1 : likes}</span>
+                  </div>
                   <button
                     onClick={() => handleLike(id)}
                     aria-label='like-button'
@@ -94,17 +104,10 @@ const Result = () => {
                       <FaHeart />
                     )}
                   </button>
-                  <span>{isLiked ? likes + 1 : likes}</span>
+                  {/* && */}
                 </div>
-                <div className='card-actions justify-end'>
-                  {tags &&
-                    tags.map((tag) => {
-                      return (
-                        <div className='badge badge-outline' key={tag}>
-                          {tag.title || 'Images'}
-                        </div>
-                      )
-                    })}
+                <div className='card-actions'>
+                  <div className=''>{description || alt_description}</div>
                 </div>
               </div>
             </div>
