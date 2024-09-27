@@ -9,11 +9,13 @@ import {
   Users,
   Gallery,
 } from './pages'
+import ErrorPage from './pages/Error'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <HomeLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: 'true',
