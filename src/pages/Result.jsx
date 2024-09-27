@@ -77,7 +77,7 @@ const Result = () => {
           return (
             <div className='card bg-base-100 w-96 sm:w-80 shadow-xl' key={id}>
               <figure>
-                <span className='badge badge-success text-black absolute left-2 top-2'>
+                <span className='indicator-item indicator-top indicator-start badge badge-secondary'>
                   {user.first_name}
                 </span>
                 <img
