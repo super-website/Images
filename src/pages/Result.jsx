@@ -107,7 +107,7 @@ const Result = () => {
                   {/* && */}
                 </div>
                 <div className='card-actions'>
-                  <div className=''>{description || alt_description}</div>
+                  <h1 className='text-sm'>{description || alt_description}</h1>
                 </div>
               </div>
             </div>
