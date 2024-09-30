@@ -72,7 +72,6 @@ const Result = () => {
       <div className='grid lg:grid-cols-3 gap-4 md:grid-cols-2 mt-5 max-w-7xl grid-cols-1 m-auto'>
         {results.map((item) => {
           const { id, urls, likes, description, alt_description, user } = item
-          console.log(item)
           const isLiked = likedPhotos[id] || false
           return (
             <div className='card bg-base-100 w-96 sm:w-80 shadow-xl' key={id}>
