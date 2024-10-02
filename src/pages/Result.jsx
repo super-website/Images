@@ -1,13 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { useGlobalContext } from './context'
 import axios from 'axios'
-import {
-  FaHeart,
-  FaRegUserCircle,
-  FaUser,
-  FaUserCircle,
-  FaUsers,
-} from 'react-icons/fa'
+import { FaHeart, FaUsers } from 'react-icons/fa'
 import { useState } from 'react'
 import Skelton from '../components/Skelton'
 import { Helmet } from 'react-helmet'
@@ -18,23 +12,26 @@ const url =
 const Result = () => {
   const { searchTerm } = useGlobalContext()
   const [likedPhotos, setLikedPhotos] = useState({})
+  const [limit, setLimit] = useState(10)
 
   const response = useQuery({
-    queryKey: ['results', searchTerm],
+    queryKey: ['results', searchTerm, limit],
     queryFn: async () => {
-      const result = await axios.get(`${url}&query=${searchTerm}&per_page=20`)
+      const result = await axios.get(
+        `${url}&query=${searchTerm}&per_page=${limit}`
+      )
       return result.data
     },
   })
 
-  if (response.isLoading) {
-    return <Skelton />
-  }
+  const handleClick = () => setLimit((prevLimit) => prevLimit + 5)
+
+  if (response.isLoading) return <Skelton />
 
   if (response.isError) {
     return (
       <div>
-        <h4>There was something wrong.....</h4>
+        <h4>There was something wrong: {response.error.message}</h4>
       </div>
     )
   }
@@ -66,13 +63,14 @@ const Result = () => {
         </title>
         <meta
           name='description'
-          content='Discover over 100 high-definition images available for free download on Picsum. Perfect for your projects, these stunning visuals range from nature landscapes to urban scenes. Enhance your website, blog, or creative work with high-quality, royalty-free pictures. Explore our collection today and find the perfect image to elevate your content!'
+          content='Discover over 100 high-definition images available for free download on Picsum. Perfect for your projects, these stunning visuals range from nature landscapes to urban scenes.'
         />
       </Helmet>
       <div className='grid lg:grid-cols-3 gap-4 md:grid-cols-2 mt-5 max-w-7xl grid-cols-1 m-auto'>
         {results.map((item) => {
           const { id, urls, likes, description, alt_description, user } = item
           const isLiked = likedPhotos[id] || false
+
           return (
             <div className='card bg-base-100 w-96 sm:w-80 shadow-xl' key={id}>
               <figure>
@@ -81,8 +79,8 @@ const Result = () => {
                 </span>
                 <img
                   src={urls.regular}
-                  sizes='(max-width: 400px) 100vw, 400px'
-                  alt='Shoes'
+                  loading='lazy'
+                  alt={alt_description || 'Photo by ' + user.first_name}
                   className='max-w-full h-96 object-cover'
                   width={400}
                 />
@@ -103,7 +101,6 @@ const Result = () => {
                       <FaHeart />
                     )}
                   </button>
-                  {/* && */}
                 </div>
                 <div className='card-actions'>
                   <h1 className='text-sm'>{description || alt_description}</h1>
@@ -113,6 +110,15 @@ const Result = () => {
           )
         })}
       </div>
+      {results.length >= limit && (
+        <button
+          onClick={handleClick}
+          aria-label='Show more photos'
+          className='w-full text-primary m-10'
+        >
+          Show More
+        </button>
+      )}
     </>
   )
 }
