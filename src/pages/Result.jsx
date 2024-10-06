@@ -42,7 +42,7 @@ const Result = () => {
     return (
       <div className='text-center pt-10'>
         <h4 className='text-4xl max-w-xl m-auto'>
-          There is nothing to match according to your value!!!
+          No results found for `${searchTerm}`!
         </h4>
       </div>
     )
@@ -63,17 +63,17 @@ const Result = () => {
         </title>
         <meta
           name='description'
-          content='Discover over 100 high-definition images available for free download on Picsum. Perfect for your projects, these stunning visuals range from nature landscapes to urban scenes.'
+          content='Discover over 100 high-definition images available for free download on Picsum.'
         />
       </Helmet>
-      <div className='grid lg:grid-cols-3 gap-4 md:grid-cols-2 mt-5 max-w-7xl grid-cols-1 m-auto'>
+      <div className='grid gap-4 mt-5 max-w-7xl mx-auto sm:grid-cols-2 lg:grid-cols-3'>
         {results.map((item) => {
           const { id, urls, likes, description, alt_description, user } = item
           const isLiked = likedPhotos[id] || false
 
           return (
             <div
-              className='card bg-base-100 lg:w-96 sm:w-64 md:72 shadow-xl'
+              className='card bg-base-100 shadow-xl transition-transform duration-300 hover:scale-105'
               key={id}
             >
               <figure>
@@ -82,13 +82,15 @@ const Result = () => {
                 </span>
                 <img
                   src={urls.regular}
+                  srcSet={`${urls.small} 480w, ${urls.regular} 800w, ${urls.full} 1080w`}
+                  sizes='(max-width: 640px) 100vw, (min-width: 641px) 50vw, (min-width: 1025px) 33vw'
                   loading='lazy'
-                  alt={alt_description || 'Photo by ' + user.first_name}
-                  className='max-w-full h-96 object-cover '
+                  alt={alt_description || `Photo by ${user.first_name}`}
+                  className='max-w-full h-72 object-cover'
                 />
               </figure>
               <div className='card-body'>
-                <div className='flex justify-between'>
+                <div className='flex justify-between items-center'>
                   <div className='flex items-center gap-1 text-sm'>
                     <FaUsers />
                     <span>{isLiked ? likes + 1 : likes}</span>
@@ -104,9 +106,11 @@ const Result = () => {
                     )}
                   </button>
                 </div>
-                <div className='card-actions'>
-                  <h1 className='text-sm'>{description || alt_description}</h1>
-                </div>
+                <h1 className='text-sm mt-2'>
+                  {description ||
+                    alt_description ||
+                    'No description available.'}
+                </h1>
               </div>
             </div>
           )
@@ -116,7 +120,7 @@ const Result = () => {
         <button
           onClick={handleClick}
           aria-label='Show more photos'
-          className='w-full text-primary m-10'
+          className='w-full text-primary m-10 p-2 border border-primary rounded hover:bg-primary hover:text-white transition-all'
         >
           Show More
         </button>
