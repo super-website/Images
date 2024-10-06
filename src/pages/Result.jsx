@@ -81,7 +81,7 @@ const Result = () => {
                   src={urls.regular}
                   loading='lazy'
                   alt={alt_description || 'Photo by ' + user.first_name}
-                  className='max-w-full h-96 object-cover'
+                  className='max-w-full h-96 object-cover sm:w-56'
                   width={400}
                 />
               </figure>
