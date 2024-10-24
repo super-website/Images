@@ -75,7 +75,7 @@ const Result = () => {
             <div
               className='card bg-base-100 shadow-xl transition-transform duration-300 hover:scale-105'
               key={id}
-              style={{ width: '320px', marginRight: '24px' }}
+              style={{ width: '320px' }}
             >
               <figure>
                 <span className='badge badge-success text-black absolute left-2 top-2'>
