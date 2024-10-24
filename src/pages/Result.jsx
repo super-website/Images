@@ -75,6 +75,7 @@ const Result = () => {
             <div
               className='card bg-base-100 shadow-xl transition-transform duration-300 hover:scale-105'
               key={id}
+              style={{ width: '320px', marginRight: '24px' }}
             >
               <figure>
                 <span className='badge badge-success text-black absolute left-2 top-2'>
@@ -85,7 +86,6 @@ const Result = () => {
                   loading='lazy'
                   alt={alt_description || `Photo by ${user.first_name}`}
                   className='max-w-full object-cover'
-                  style={{ width: '320px', marginRight: '24px' }}
                 />
               </figure>
               <div className='card-body'>
