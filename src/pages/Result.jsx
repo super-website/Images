@@ -116,13 +116,15 @@ const Result = () => {
         })}
       </div>
       {results.length >= limit && (
-        <button
-          onClick={handleClick}
-          aria-label='Show more photos'
-          className='max-w-sm text-primary m-10 p-2 border border-primary rounded hover:bg-primary hover:text-white transition-all mx-auto md:mx-0'
-        >
-          Show More
-        </button>
+        <div className='flex justify-center'>
+          <button
+            onClick={handleClick}
+            aria-label='Show more photos'
+            className='bg-blue-500 text-white m-4 p-2 border border-blue-500 rounded hover:bg-blue-700 transition-all'
+          >
+            Show More
+          </button>
+        </div>
       )}
     </>
   )
