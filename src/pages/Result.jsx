@@ -82,11 +82,10 @@ const Result = () => {
                 </span>
                 <img
                   src={urls.regular}
-                  srcSet={`${urls.small} 480w, ${urls.regular} 800w, ${urls.full} 1080w`}
-                  sizes='(max-width: 640px) 100vw, (min-width: 641px) 50vw, (min-width: 1025px) 33vw'
                   loading='lazy'
                   alt={alt_description || `Photo by ${user.first_name}`}
-                  className='max-w-full h-72 object-cover'
+                  className='max-w-full object-cover'
+                  style={{ width: '320px', marginRight: '24px' }}
                 />
               </figure>
               <div className='card-body'>
