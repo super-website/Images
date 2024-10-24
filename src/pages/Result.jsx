@@ -73,7 +73,7 @@ const Result = () => {
 
           return (
             <div
-              className='card bg-base-100 shadow-xl transition-transform duration-300 hover:scale-105'
+              className='card bg-base-100 shadow-xl transition-transform duration-300 hover:scale-105 mx-auto md:mx-0'
               key={id}
               style={{ width: '320px' }}
             >
