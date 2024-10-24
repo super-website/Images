@@ -52,14 +52,14 @@ const Gallery = () => {
         />
       </Helmet>
       <div className='max-w-7xl m-auto'>
-        <h2 className='text-3xl mb-5'>Gallery</h2>
+        <h2 className='text-xl md:text-3xl ml-3 mb-5'>Gallery</h2>
         <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4'>
           {isLoading ? (
             <Skelton />
           ) : (
             gallery.map((item) => (
               <div
-                className='card bg-base-100 shadow-xl'
+                className='card bg-base-100 shadow-xl mx-auto md:mx-0'
                 style={{ width: '320px' }}
                 key={item.id}
               >
