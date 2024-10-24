@@ -31,7 +31,7 @@ const Users = () => {
           content='Meet our vibrant community of users who leverage over 100 free HD images from Picsum for their creative projects. From artists and bloggers to businesses and educators, our platform empowers everyone to access stunning visuals that inspire and engage. Explore how our users are transforming their work with high-quality images, and join us in celebrating creativity and innovation!'
         />
       </Helmet>
-      <div className='text-md  text-gray-500 '>
+      <div className='md:text-md  text-gray-500 ml-5 md:ml-0 text-xs'>
         <ul className='flex gap-2'>
           <li>
             <Link to='/'>Home</Link>
@@ -42,12 +42,16 @@ const Users = () => {
           </li>
         </ul>
       </div>
-      <h2 className='text-4xl mb-3'>Users</h2>
+      <h2 className='md:text-3xl mb-3 ml-5 md:ml-0 text-xl'>Users</h2>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl m-auto'>
         {users.map((item) => {
           const { id, user } = item
           return (
-            <div className='card bg-base-100 shadow-xl' key={id}>
+            <div
+              className='card bg-base-100 shadow-xl mx-auto md:mx-0'
+              style={{ width: '320px' }}
+              key={id}
+            >
               <figure>
                 <div className='avatar'>
                   <div className='w-24 rounded-full'>

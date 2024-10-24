@@ -52,7 +52,7 @@ const Gallery = () => {
         />
       </Helmet>
       <div className='max-w-7xl m-auto'>
-        <h2 className='text-xl md:text-3xl ml-3 mb-5'>Gallery</h2>
+        <h2 className='text-xl md:text-3xl ml-5 md:ml-0 mb-5'>Gallery</h2>
         <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4'>
           {isLoading ? (
             <Skelton />
