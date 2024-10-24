@@ -73,7 +73,7 @@ const Result = () => {
 
           return (
             <div
-              className='card bg-base-100 shadow-xl transition-transform duration-300 hover:scale-105 mx-auto md:mx-0 md:h-96 h-auto object-cover'
+              className='card bg-base-100 shadow-xl transition-transform duration-300 hover:scale-105 mx-auto md:mx-0 '
               key={id}
               style={{ width: '320px' }}
             >
@@ -85,7 +85,7 @@ const Result = () => {
                   src={urls.regular}
                   loading='lazy'
                   alt={alt_description || `Photo by ${user.first_name}`}
-                  className='max-w-full object-cover'
+                  className='max-w-full object-cover md:h-80 h-auto '
                 />
               </figure>
               <div className='card-body'>

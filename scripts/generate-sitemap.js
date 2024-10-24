@@ -6,37 +6,37 @@ const links = [
     url: '/',
     changefreq: 'daily',
     priority: 1.0,
-    lastmod: new Date().toISOString(),
+    lastmod: new Date().toLocaleString(),
   },
   {
     url: '/gallery',
     changefreq: 'daily',
     priority: 1.0,
-    lastmod: new Date().toISOString(),
+    lastmod: new Date().toLocaleString(),
   },
   {
     url: '/about',
     changefreq: 'daily',
     priority: 1.0,
-    lastmod: new Date().toISOString(),
+    lastmod: new Date().toLocaleString(),
   },
   {
     url: '/users',
     changefreq: 'daily',
     priority: 1.0,
-    lastmod: new Date().toISOString(),
+    lastmod: new Date().toLocaleString(),
   },
   {
     url: '/deals',
     changefreq: 'daily',
     priority: 1.0,
-    lastmod: new Date().toISOString(),
+    lastmod: new Date().toLocaleString(),
   },
   {
     url: '/results',
     changefreq: 'daily',
     priority: 1.0,
-    lastmod: new Date().toISOString(),
+    lastmod: new Date().toLocaleString(),
   },
 ]
 
