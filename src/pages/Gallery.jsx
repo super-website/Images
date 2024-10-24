@@ -66,11 +66,9 @@ const Gallery = () => {
                   <img
                     src={item.download_url}
                     alt={item.author}
-                    className='h-96 max-w-full'
-                    sizes='(max-width: 400px) 100vw, 400px'
+                    className=' max-w-full'
+                    style={{ width: '320px' }}
                     rel='preload'
-                    width={300}
-                    height={240}
                   />
                 </figure>
                 <div className='card-body'>
