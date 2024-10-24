@@ -59,7 +59,8 @@ const Gallery = () => {
           ) : (
             gallery.map((item) => (
               <div
-                className='card bg-base-100 w-96 sm:w-80 shadow-xl'
+                className='card bg-base-100 shadow-xl'
+                style={{ width: '320px' }}
                 key={item.id}
               >
                 <figure>
@@ -67,7 +68,6 @@ const Gallery = () => {
                     src={item.download_url}
                     alt={item.author}
                     className=' max-w-full'
-                    style={{ width: '320px' }}
                     rel='preload'
                   />
                 </figure>
