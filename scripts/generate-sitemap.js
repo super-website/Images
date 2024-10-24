@@ -2,12 +2,42 @@ import { SitemapStream, streamToPromise } from 'sitemap'
 import fs from 'fs'
 
 const links = [
-  { url: '/', changefreq: 'daily', priority: 1.0 },
-  { url: '/gallery', changefreq: 'daily', priority: 1.0 },
-  { url: '/about', changefreq: 'daily', priority: 1.0 },
-  { url: '/users', changefreq: 'daily', priority: 1.0 },
-  { url: '/deals', changefreq: 'daily', priority: 1.0 },
-  { url: '/results', changefreq: 'daily', priority: 1.0 },
+  {
+    url: '/',
+    changefreq: 'daily',
+    priority: 1.0,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    url: '/gallery',
+    changefreq: 'daily',
+    priority: 1.0,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    url: '/about',
+    changefreq: 'daily',
+    priority: 1.0,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    url: '/users',
+    changefreq: 'daily',
+    priority: 1.0,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    url: '/deals',
+    changefreq: 'daily',
+    priority: 1.0,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    url: '/results',
+    changefreq: 'daily',
+    priority: 1.0,
+    lastmod: new Date().toISOString(),
+  },
 ]
 
 const sitemapStream = new SitemapStream({
