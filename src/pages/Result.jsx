@@ -2,17 +2,24 @@ import { useQuery } from '@tanstack/react-query'
 import { useGlobalContext } from './context'
 import axios from 'axios'
 import { FaHeart, FaUsers } from 'react-icons/fa'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Skelton from '../components/Skelton'
 import { Helmet } from 'react-helmet'
+import { useSearchParams } from 'react-router-dom'
 
 const url =
   'https://api.unsplash.com/search/photos?client_id=MBSh4UFmTzINMXwTxM_OygCRTnqwVltDfFPdlxwdH4U'
 
 const Result = () => {
   const { searchTerm } = useGlobalContext()
+  const [searchParams, setSearchParams] = useSearchParams()
   const [likedPhotos, setLikedPhotos] = useState({})
-  const [limit, setLimit] = useState(10)
+
+  const limit = parseInt(searchParams.get('limit') || '10', 10)
+
+  useEffect(() => {
+    setSearchParams({ query: searchTerm, limit })
+  }, [searchTerm, limit, setSearchParams])
 
   const response = useQuery({
     queryKey: ['results', searchTerm, limit],
@@ -24,7 +31,10 @@ const Result = () => {
     },
   })
 
-  const handleClick = () => setLimit((prevLimit) => prevLimit + 5)
+  const handleClick = () => {
+    const newLimit = limit + 5
+    setSearchParams({ query: searchTerm, limit: newLimit })
+  }
 
   if (response.isLoading) return <Skelton />
 
