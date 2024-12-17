@@ -17,11 +17,22 @@ const Navbar = () => {
           Picsum
         </a>
       </div>
-      <div className='flex-none gap-2'>
-        <div className='form-control'>
-          {location.pathname === '/' && <SearchForm />}
-        </div>
-        <div className='dropdown dropdown-end'>
+      <div className='flex-none gap-2 items-center '>
+        {/* Desktop */}
+        <ul className='menu menu-horizontal hidden md:flex'>
+          {items.map((item) => {
+            const { id, name, path } = item
+            return (
+              <li key={id}>
+                <NavLink to={path} className='capitalize text-md'>
+                  {name}
+                </NavLink>
+              </li>
+            )
+          })}
+        </ul>
+        {/* Mobile */}
+        <div className='dropdown dropdown-end block md:hidden'>
           <div
             tabIndex={0}
             role='button'
@@ -29,7 +40,7 @@ const Navbar = () => {
             className='btn btn-ghost btn-circle avatar '
           >
             <div className='w-10  rounded-full'>
-              <FaBars className=' h-full text-center' />
+              <FaBars className=' h-full text-center  ' />
             </div>
           </div>
           <ul
@@ -47,6 +58,11 @@ const Navbar = () => {
               )
             })}
           </ul>
+        </div>
+        {/* Search Form */}
+
+        <div className='form-control'>
+          {location.pathname === '/' && <SearchForm />}
         </div>
       </div>
     </div>
