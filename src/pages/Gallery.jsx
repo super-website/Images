@@ -67,7 +67,7 @@ const Gallery = () => {
                   <img
                     src={item.download_url}
                     alt={item.author}
-                    className=' max-w-full'
+                    className='w-80 h-80'
                     rel='preload'
                   />
                 </figure>

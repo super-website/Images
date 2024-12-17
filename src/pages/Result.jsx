@@ -85,7 +85,7 @@ const Result = () => {
                   src={urls.regular}
                   loading='lazy'
                   alt={alt_description || `Photo by ${user.first_name}`}
-                  className='max-w-full object-cover md:h-80 h-auto '
+                  className='w-80 object-cover md:h-80  '
                 />
               </figure>
               <div className='card-body'>
