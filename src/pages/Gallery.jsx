@@ -94,7 +94,7 @@ const Gallery = () => {
                         })}
                       className='badge badge-outline'
                     >
-                      <FaDownload className='mr-2' />
+                      <FaDownload />
                     </button>
                   </div>
                 </div>
