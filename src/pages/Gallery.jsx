@@ -84,7 +84,7 @@ const Gallery = () => {
                         .then((blob) => {
                           const link = document.createElement('a')
                           link.href = URL.createObjectURL(blob)
-                          link.setAttribute('download', 'download.jpg')
+                          link.setAttribute('download', `${item.author}.jpg`)
                           document.body.appendChild(link)
                           link.click()
                           document.body.removeChild(link)
