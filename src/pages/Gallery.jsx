@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Skelton from '../components/Skelton'
 import { Helmet } from 'react-helmet'
+import { FaDownload } from 'react-icons/fa'
 
 const Gallery = () => {
   const [gallery, setGallery] = useState([])
@@ -74,15 +75,27 @@ const Gallery = () => {
                 <div className='card-body'>
                   <h2 className='card-title'> {item.author}</h2>
                   <div className='card-actions justify-end'>
-                    <a
+                    <button
                       href={item.download_url}
+                      onClick={fetch(item.download_url)
+                        .then((response) => {
+                          response.blob()
+                        })
+                        .then((blob) => {
+                          const link = document.createElement('a')
+                          link.href = URL.createObjectURL(blob)
+                          link.setAttribute('download', 'download.jpg')
+                          document.body.appendChild(link)
+                          link.click()
+                          document.body.removeChild(link)
+                        })
+                        .catch((error) => {
+                          console.error('Error fetching data:', error)
+                        })}
                       className='badge badge-outline'
-                      download
-                      rel='noreferrer'
-                      target='_blank'
                     >
-                      Download
-                    </a>
+                      <FaDownload className='mr-2' />
+                    </button>
                   </div>
                 </div>
               </div>
