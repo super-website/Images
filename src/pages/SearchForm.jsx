@@ -14,7 +14,7 @@ const SearchForm = () => {
         placeholder='Pakistan'
         autoFocus
         autoComplete='off'
-        className=' input-sm input input-bordered sm:input-xs'
+        className=' md:input-sm input input-bordered input-xs'
       />
     </form>
   )
