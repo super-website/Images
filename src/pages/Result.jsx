@@ -31,7 +31,7 @@ const Result = () => {
     },
   })
 
-  const handleClick = () => {
+  const handleClick = (limit) => {
     const newLimit = limit + 5
     setSearchParams({ query: searchTerm, limit: newLimit })
   }
