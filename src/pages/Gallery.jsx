@@ -76,22 +76,21 @@ const Gallery = () => {
                   <h2 className='card-title'> {item.author}</h2>
                   <div className='card-actions justify-end'>
                     <button
-                      href={item.download_url}
-                      onClick={fetch(item.download_url)
-                        .then((response) => {
-                          response.blob()
-                        })
-                        .then((blob) => {
-                          const link = document.createElement('a')
-                          link.href = URL.createObjectURL(blob)
-                          link.setAttribute('download', `${item.author}.jpg`)
-                          document.body.appendChild(link)
-                          link.click()
-                          document.body.removeChild(link)
-                        })
-                        .catch((error) => {
-                          console.error('Error fetching data:', error)
-                        })}
+                      onClick={() => {
+                        fetch(item.download_url)
+                          .then((response) => response.blob())
+                          .then((blob) => {
+                            const link = document.createElement('a')
+                            link.href = URL.createObjectURL(blob)
+                            link.setAttribute('download', `${item.author}.jpg`)
+                            document.body.appendChild(link)
+                            link.click()
+                            document.body.removeChild(link)
+                          })
+                          .catch((error) => {
+                            console.error('Error downloading image:', error)
+                          })
+                      }}
                       className='badge badge-outline'
                     >
                       <FaDownload />
