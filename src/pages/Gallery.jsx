@@ -31,7 +31,7 @@ const Gallery = () => {
 
   useEffect(() => {
     fetchData()
-  }, [currentPage, limit])
+  }, [currentPage])
 
   const nextPage = () => {
     setCurrentPage(currentPage + 1)
